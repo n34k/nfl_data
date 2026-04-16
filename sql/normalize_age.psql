@@ -1,0 +1,14 @@
+alter table game_log 
+add column age_dec decimal(8, 5) not null default 0
+
+UPDATE game_log
+SET age_float = 
+    CASE 
+        WHEN age ~ '^\d+-\d+$' THEN 
+            SPLIT_PART(age, '-', 1)::int 
+            + (SPLIT_PART(age, '-', 2)::int / 365.0)
+        WHEN age ~ '^\d+$' THEN 
+            age::int
+    END
+WHERE age IS NOT NULL 
+AND (age ~ '^\d+-\d+$' OR age ~ '^\d+$');
