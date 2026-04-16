@@ -1,0 +1,10 @@
+{
+    "type": "module",
+    "dependencies": {
+        "@neondatabase/serverless": "^1.0.2",
+        "csv-parse": "^6.2.1",
+        "dotenv": "^17.4.2",
+        "stream-chain": "^3.6.1",
+        "stream-json": "^2.1.0"
+    }
+}
